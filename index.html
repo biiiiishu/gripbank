@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRIP Bank</title>
+    <link rel="shortcut icon" href="dollar.png">
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+    <!-- AOS  -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R0ZXCCL4Y0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-R0ZXCCL4Y0');
+    </script>
+</head>
+
+<body onload="loader()">
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="./index.html">
+            <img src="data:image/png;base64,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"
+            width="50"height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="./index.html"> HOME<span class="sr-only">(current)</span></a>
+                </li> &nbsp;
+                <li class="nav-item">
+                    <a class="nav-link" href="./user.html">Customers</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- here content starts here -->
+    <div class="container-fluid hero-content">
+        <div class="row align-items-center">
+            <div class="col-md-6 col-sm-12 text-center" data-aos="fade-up">
+                <h5>Welcome to</h5>
+                <h1><img style="width:6%; margin-top: -6px; padding:3px;" src="dollar.png"> GRIP Bank <img
+                        style="width:6%; margin-top: -6px; padding:3px;" src="dollar.png"></h1>
+                <p>A Safe and Secure Way to Access and Manage Money</p>
+                <br><br>
+                <a class="get-started" href="./user.html">Transfer Money</a>
+            </div>
+            <div class="col-md-6 col-sm-12 text-center" data-aos="fade-right">
+                <div class="dollar">
+                    <img class="dollar" src="image.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- here content ends here -->
+
+    <!--Footer starts here-->
+    <div class="foot">
+        <div class="container">
+            <div class="text">
+                 &copy; 2023 By -  <a href="https://www.linkedin.com/in/bishop-tyagi-567424263/" target="_blank">Bishop Tyagi</a>
+            </div>
+        </div>
+    </div>
+    <!--Footer ends here-->
+</body>
+
+</html>
+<!-- splash screen js -->
+<script>
+    var preloader = document.getElementById("loading");
+    function loader() {
+        preloader.style.display = 'none';
+    }
+</script>
+
+<script src="script.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+
+<!-- aos data  -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 700,
+    });
+</script>
